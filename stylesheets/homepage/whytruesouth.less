@@ -1,0 +1,118 @@
+#why-true-south-solar{
+   .summary-v2-block:nth-child(3){
+      .summary-item-list{
+          .summary-item:nth-child(even){
+              display:flex;
+              display:-webkit-flex;
+              flex-direction:row-reverse;
+              -webkit-flex-direction:row-reverse;
+              .summary-content{
+                    .summary-title{
+                      text-align:right;
+                    }
+                    .summary-excerpt{
+                       p{
+                         text-align:right;
+                       }
+                    }
+                }
+            }
+         }
+         .summary-item{
+           display:flex;
+           display:-webkit-flex;
+           align-items:center;
+           -webkit-align-items:center;
+           justify-content:center;
+           -webkit-justify-content:center;
+           border-bottom:1px solid @cool;
+           pointer-events:none;
+           flex-wrap:wrap;
+           -webkit-flex-wrap:wrap;
+           @media screen and (min-width: 769px){
+               height:50vh;
+               min-height:350px;
+               .summary-content{
+                  opacity:0;
+              }
+              .summary-thumbnail-container{
+                  opacity:0;
+              }
+              .summary-thumbnail.img-wrapper{
+                 padding:4em !important;
+              }
+           }
+           @media screen and (max-width:768px) {
+               flex-direction:column !important;
+               -webkit-flex-direction:column !important;
+               .summary-title{
+                 font-size:2em !important;
+                 text-align:center !important;
+               }
+               .summary-thumbnail-container{
+                  width:100% !important;
+                  padding-right:0 !important;
+               }
+               .summary-thumbnail.img-wrapper, .summary-content{
+                 width:100% !important;
+               }
+               .summary-excerpt{
+                 p{
+                   text-align:center !important;
+                 }
+               }
+           }
+           &:last-child{
+             border:none !important;
+             p:nth-child( n + 2){
+               font-size:0.85em;
+               font-weight:400;
+               margin:0;
+               margin-left:0.25em;
+               &:before{
+                 content:"• ";
+                 margin-right:0.5em;
+               }
+             }
+           }
+           .summary-title{
+             font-size: 2.5vw;
+             color:@brand-color;
+           }
+           .summary-excerpt{
+             p{
+               font-size:1.1em;
+             }
+           }
+         }
+     }
+     .company-info{
+       padding-bottom:2em;
+       h1{
+         font-weight:600;
+       }
+       p{
+         font-size:1.5em;
+         line-height:1.3em;
+       }
+       text-align:center
+     }
+     .summary-v2-block:nth-child(n + 6){
+         .summary-content{
+            display:flex;
+            display:-webkit-flex;
+            align-items:center;
+            -webkit-align-items:center;
+            height:50px;
+            border-bottom:3px solid @cool;
+            margin:1em;
+            justify-content:center;
+            pointer-events:none;
+            .summary-title{
+                font-weight:600;
+                text-transform:uppercase;
+                font-size:1em;
+            }
+        }
+     }
+}

@@ -1,0 +1,76 @@
+#services-intro {
+    background-color:@cool;
+    .Index-page-content {
+        .summary-item { 
+            min-height:250px;
+            cursor:pointer;
+            border-bottom:3px solid @dark;
+            opacity:0;
+            .summary-thumbnail-container{
+               .summary-thumbnail{
+                  background:black;
+                  height:250px;
+                  margin-bottom:-20px;
+                  overflow:visible !important;
+                  img{
+                    opacity:0.45;
+                    height:130% !important;
+                    width:auto !important;                    
+                  }
+               }
+            }
+            .summary-content {
+                display: flex;
+                display:-webkit-flex;
+                align-items: center;
+                -webkit-align-items: center;
+                justify-content:center;
+                -webkit-justify-content:center;
+                position:absolute;
+                top:0;
+                left:0;
+                height:100%;
+                width:100%;
+                &:hover{
+                  .summary-title {
+                    visibility:hidden;               
+                  }
+                  .summary-excerpt {
+                    position:visible;
+                    opacity:1;
+                  }                  
+                }
+                .summary-title {
+                  text-align:center;
+                  max-width:250px;
+                  color:white;
+                  font-weight:600;
+                  margin:0 !important;
+                }
+                .summary-excerpt {
+                  position:absolute;
+                  opacity:0;
+                  width:100%;
+                  height:100%;
+                  left:0;
+                  top:0;
+                  transition:0.4s;
+                  background: @cta;
+                  display:flex;
+                  display:-webkit-flex;
+                  align-items:center;
+                  -webkit-align-items:center;
+                  border-radius:2px;
+                  padding:1em;
+                  p{
+                    color:white;
+                    font-weight:400;
+                    font-size:0.9em;
+                    line-height:1.2em;
+                    text-align:center;
+                  }
+                }
+            }
+        }
+    }
+}
