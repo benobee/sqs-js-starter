@@ -99,9 +99,9 @@ class Template {
 
 		for (let i = attributes.length - 1; i >= 0; i--) {
         	output[ attributes[ i ].name ] = attributes[ i ].value;
-        }
+		}
 
-        this.props = output;
+		this.props = output;
 
 		const keys = Object.keys(output);
 		const values = Object.values(output);
