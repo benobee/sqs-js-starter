@@ -1,6 +1,6 @@
 const webpack = require("webpack");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const PROD = JSON.parse(process.env.PROD_ENV || '1');
+const PROD = JSON.parse(process.env.PROD_ENV || '0');
 
 const config = {
 	context: __dirname,

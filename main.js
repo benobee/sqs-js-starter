@@ -1,6 +1,7 @@
 import { Scrollmap, Router, Storage, App } from './source/core';
 import * as modules from './source/modules';
 import SQS from './source/sqs';
+import $ from 'jquery';
 
 const css = require('./main.less');
 
@@ -20,7 +21,7 @@ class Site_Build {
 
 		//wait for app-loaded event
 		App.subscribe("app-loaded", (site) => {
-			console.log(site);
+			console.log(this);
 		});
 	}
 }
