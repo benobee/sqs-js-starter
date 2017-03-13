@@ -1,5 +1,3 @@
-import $ from 'jquery';
-
 class Trigger {
 	constructor(element, options) {
 		this.element = element;

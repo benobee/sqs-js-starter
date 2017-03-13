@@ -2,8 +2,8 @@ import { App } from '../../core';
 
 class Module {
 	constructor() {
-		App.subscribe("site-loaded", () => {
-			
+		App.subscribe("app-loaded", (site) => {
+			this.appLoaded = true;
 		});
 	}
 }

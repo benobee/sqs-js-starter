@@ -4,19 +4,21 @@ import SQS from './source/sqs';
 
 const css = require('./main.less');
 
+//build the site object
 class Site_Build {
 	constructor() {
 		this.Router = Router;
-		this.Scrollmap = Scrollmap;
-		this.Storage = Storage;
 		this.Modules = modules;
+		this.Scrollmap = Scrollmap;
+		this.db = Storage.db;
 		this.App = App;
 		this.SQS = SQS;
 
-		/* modules */
+		//module inits
 		Router.init();
 		Scrollmap.init();
 
+		//wait for app-loaded event
 		App.subscribe("app-loaded", (site) => {
 			console.log(site);
 		});
@@ -25,6 +27,7 @@ class Site_Build {
 
 const Site = new Site_Build();
 
+//publish app-loaded event
 App.publish("app-loaded", Site);
 
 

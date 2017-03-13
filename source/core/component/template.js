@@ -98,7 +98,7 @@ class Template {
 		const output = {};
 
 		for (let i = attributes.length - 1; i >= 0; i--) {
-        	output[ attributes[ i ].name ] = attributes[ i ].value;
+			output[ attributes[ i ].name ] = attributes[ i ].value;
 		}
 
 		this.props = output;

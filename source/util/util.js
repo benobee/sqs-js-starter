@@ -1,5 +1,3 @@
-import $ from 'jquery';
-
 const Util = {
     slugify(filterName) {
 
@@ -20,6 +18,12 @@ const Util = {
 		}
 
 		return foundOnPage;
+	},
+	addClass(className) {
+		
+	},
+	removeClass(className) {
+		
 	}
 };
 

@@ -6,10 +6,6 @@
  */
 
 const Cookie = {
-	init() {
-		this.set = this.set;
-		this.get = this.get;
-	},
 	set(cname, cvalue, exdays) {
 	    const d = new Date();
 

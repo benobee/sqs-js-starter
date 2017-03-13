@@ -1,19 +1,20 @@
 const webpack = require("webpack");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const PROD = JSON.parse(process.env.PROD_ENV || '0');
+const PROD = JSON.parse(process.env.PROD_ENV || '1');
 
 const config = {
 	context: __dirname,
 	entry: ['./main.js', './main.less'],
-	devtool: PROD ? '' : 'eval',
+	devtool: PROD ? 'sourceMap' : 'eval',
 	output: {
 		publicPath: '/',
 		path: __dirname + "/template/assets",
 		filename: "bundle.js"
 	},
 	node: {
-	dns: 'mock',
-	net: 'mock'
+  	dns: 'mock',
+  	net: 'mock',
+    fs: 'empty'
 	},
 	resolve: {
 	    alias: {
@@ -95,7 +96,7 @@ const minify = new webpack.optimize.UglifyJsPlugin({
               comments: false
           },
           minimize: true,
-          debug: true,
+          debug: false,
           sourceMap: true
       });
 

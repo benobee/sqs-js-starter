@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { Scrollmap, Trigger } from '../../core/scrollmap/index.js';
-import { TweenMax, Power2, TimelineLite } from "gsap";
+import { TweenMax } from "gsap";
 
 /*
  *
@@ -20,6 +20,23 @@ const homepage = {
         this.products();
         this.team();
         this.partnerships();
+    },
+    test() {
+        const target = $('.juice');
+
+        Scrollmap.add(target, {
+            onTriggerIn() {
+                $(this.element).css({
+                    border: '50px solid black'
+                });
+            },
+            onTriggerOut() {
+                $(this.element).css({
+                    border: '50px solid antiquewhite'
+                });               
+            },
+            surfaceVisible: 0.5
+        });
     },
     welcome() {
         const target = $('#welcome .Index-page-content .sqs-layout');
@@ -47,7 +64,7 @@ const homepage = {
                 TweenMax.to(content, 0.6, { opacity: 1 });
                 TweenMax.to(image, 0.4, { opacity: 1, scale: 1, delay: 0.3 });
             },
-            surfaceVisible: 0.5
+            surfaceVisible: 0.8
         });        
     },
     services() {
