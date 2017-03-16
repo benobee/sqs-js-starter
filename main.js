@@ -1,6 +1,6 @@
-import { Scrollmap, Router, Storage, App } from './source/core';
-import * as modules from './source/modules';
-import SQS from './source/sqs';
+import { Scrollmap, Router, Storage, App } from './src/core';
+import * as modules from './src/modules';
+import SQS from './src/sqs';
 import $ from 'jquery';
 
 const css = require('./main.less');
