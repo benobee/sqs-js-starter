@@ -11,9 +11,11 @@ import Trigger from './trigger';
 
 const Scrollmap = {
   init() {
-    this.points = [];
 
+    this.lastScrollTop = 0;
+    this.points = [];
     this.events();
+
   },
   add(el, callback) {
 
@@ -47,25 +49,33 @@ const Scrollmap = {
      * @desc check if element is in viewport
     */
    
-    const rect = el.getBoundingClientRect();
+    /*
+     * look for direction of scroll and base element visible
+     * percentage off of either top bottom when scrolling
+     * down, or the top when scrolling up. This may not be
+     * the perfect method but is cross browser compatible.
+    */
    
-    //special bonus for those using jQuery
+    const rect = el.getBoundingClientRect();
+    
     if (typeof jQuery === "function" && el instanceof jQuery) {
       el = el[ 0 ];
     }
 
-    // return (
-    //     rect.top >= 0 &&
-    //     rect.left >= 0 &&
-    //     rect.bottom / 2 * percetageOfElement <= (window.innerHeight || document.documentElement.clientHeight) /*or $(window).height() */
-    //     rect.right <= (window.innerWidth || document.documentElement.clientWidth) /*or $(window).width() */
-    // );
-    
-    return (
-      rect.top >= 0 &&
-      rect.left >= 0 &&
-      rect.top + (rect.height * percetageOfElement) <= (window.innerHeight || document.documentElement.clientHeight ) /*or $(window).height() */
-    );
+    const stats = {
+        top: rect.top - window.innerHeight,
+        bottom: rect.bottom + rect.height,
+        height: rect.height,
+        window: window.innerHeight
+    };
+
+    const amount = stats.height * percetageOfElement;
+
+    if ( (stats.bottom - amount > stats.height) && (stats.top + amount < 0)) {
+      return true;
+    }
+
+    return false;
 
   },
   checkVisible(point) {
@@ -87,13 +97,64 @@ const Scrollmap = {
       }
     }
   },
+  on(string, callback) {
+
+      /*
+       * methods for creating various listeners
+      */
+
+      const direction = this.scrollOrient;
+
+      if (direction === "Up" && string === "scrollUp") {
+          callback();
+      }
+
+      if (direction === "Down" && string === "scrollDown") {
+          callback();             
+      }
+  },
+  scrollDirection() {
+
+      /*
+       * return the scroll direction via a string value
+      */
+      
+      let direction = "";
+
+      const st = window.pageYOffset || document.documentElement.scrollTop;
+
+       if (st > this.lastScrollTop) {
+            direction = "Down";
+       } else {
+            direction = "Up";
+       } 
+
+       this.lastScrollTop = st;
+
+       return direction;
+  },
+  extend(obj) {
+    Object.assign(this, obj);
+  },
   events() {
   	//initial check on page load to see if elements are visible
-    $(window).bind('scroll load resize', () => {
+    $(window).on("load", () => {
       this.points.forEach((point) => {
         this.checkVisible(point);
       });
     });
+
+    //check for visible elements on scroll
+    $(window).on('scroll', () => {
+      this.scrollOrient = this.scrollDirection();
+
+      Events.publish("scrollDirection", this.scrollOrient);
+
+      this.points.forEach((point) => {
+        this.checkVisible(point);
+      });
+    });
+
   }
 };
 
