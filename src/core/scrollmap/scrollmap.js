@@ -1,4 +1,4 @@
-import $ from 'jquery';
+import $ from '../dom/dom';
 import Trigger from './trigger';
 
 /**
@@ -34,9 +34,7 @@ const Scrollmap = {
     }
 
     el.forEach((item) => {
-        const currentClass = item.getAttribute('class');
-
-        item.setAttribute("class", currentClass + " on-scroll");
+        $(item).data('scrollmap-loaded', true);
 
         const point = new Trigger(item, callback);
 
@@ -65,8 +63,7 @@ const Scrollmap = {
     const stats = {
         top: rect.top - window.innerHeight,
         bottom: rect.bottom + rect.height,
-        height: rect.height,
-        window: window.innerHeight
+        height: rect.height
     };
 
     const amount = stats.height * percetageOfElement;
@@ -83,17 +80,17 @@ const Scrollmap = {
     const viewport = this.elementInViewport(targetElement, point.surfaceVisible);
 
     if (viewport) {
-      $(targetElement).addClass('is-visible');
-      point.onTriggerIn();
+      $(targetElement).data('is-visible', true);
+
       if (point.onTriggerIn) {
-        point.onTriggerIn();
+          point.onTriggerIn();
       }
 
     } else {
-      $(targetElement).removeClass('is-visible');
+      $(targetElement).data('is-visible', false);
 
       if (point.onTriggerOut) {
-        point.onTriggerOut();
+          point.onTriggerOut();
       }
     }
   },
@@ -138,17 +135,15 @@ const Scrollmap = {
   },
   events() {
   	//initial check on page load to see if elements are visible
-    $(window).on("load", () => {
+    window.onload = () => {
       this.points.forEach((point) => {
         this.checkVisible(point);
       });
-    });
+    };
 
     //check for visible elements on scroll
-    $(window).on('scroll', () => {
+    window.addEventListener("scroll", () => {
       this.scrollOrient = this.scrollDirection();
-
-      Events.publish("scrollDirection", this.scrollOrient);
 
       this.points.forEach((point) => {
         this.checkVisible(point);

@@ -14,6 +14,7 @@ import Component from "./component/component";
 import Scrollmap from "./scrollmap/scrollmap";
 import App from "./app/app";
 import Module from "./module/module";
+import $ from './dom/dom';
 
 export {
 	Events,
@@ -23,5 +24,6 @@ export {
 	Router,
 	Scrollmap,
 	App,
-	Module
+	Module,
+	$
 };

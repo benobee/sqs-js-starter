@@ -18,12 +18,6 @@ const Util = {
 		}
 
 		return foundOnPage;
-	},
-	addClass(className) {
-		
-	},
-	removeClass(className) {
-		
 	}
 };
 

@@ -48,7 +48,7 @@ const input = {
 Object.assign(WEBPACK_CONFIG, input);
 
 /****************************************/
-/********        LOADERS      ***********/
+/********   LOADERS / RULES   ***********/
 /****************************************/
 
 /*
@@ -57,6 +57,19 @@ Object.assign(WEBPACK_CONFIG, input);
 */
 
 const rules = [];
+
+/*********************/
+
+// @rule: Image Loader
+const imageLoader = {
+    test: /\.(jpe?g|png|gif|svg)$/i,
+    loaders: [
+        'file?hash=sha512&digest=hex&name=[hash].[ext]',
+        'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
+    ]    
+};
+
+rules.push(imageLoader);
 
 /*********************/
 

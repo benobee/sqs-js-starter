@@ -16,8 +16,14 @@
 		margin-top:105vh;
 		height:300px;
 		margin-bottom:50px;
-		transition:0.5s;
+		transition:0.8s;
 		border: 50px solid antiquewhite;
+	}
+	.juice[data-position="left"]{
+		transform: translateX(-50%);
+	}
+	.juice[data-position="right"]{
+		transform: translateX(50%);
 	}
 	.on-scroll.is-visible{
 		background:aquamarine !important;
@@ -27,7 +33,7 @@
 <body class="view-list collection-type-blog">
 <main id="page">
 	<div id="target" class="juice"></div>
-<!-- 	<div id="target-2" class="juice"></div> -->
+	<div id="target-2" class="juice"></div>
 </main>
 <script src="/bundle.js"></script>
 </body>
