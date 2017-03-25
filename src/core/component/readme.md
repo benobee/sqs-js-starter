@@ -1,5 +1,5 @@
 ******************************************** 
- 			  # COMPONENT   
+*************   COMPONENT   ****************  
 ********************************************
 
 **description**: A lightweight method for working 
@@ -16,33 +16,33 @@ possible using ${ - INSERT STRING OR OBJECT - }
 
 Component `<html>${value}</html>`;
 
-	**Arguments**
-		The HTML string used to create the component. Must
-		be valid HTML. Using tagged template literal syntax,
-		dynamic values can be used via '${value}'. Values can
-		be either strings, DOM elements or another Component 
-		(which is also just a DOM node). A dom node will be
-		coverted to a string and injected as innerHTML.
+**Arguments**
+	The HTML string used to create the component. Must
+	be valid HTML. Using tagged template literal syntax,
+	dynamic values can be used via '${value}'. Values can
+	be either strings, DOM elements or another Component 
+	(which is also just a DOM node). A dom node will be
+	coverted to a string and injected as innerHTML.
 
 
 ********************************************
 
 Component.render(component, DOMSelector);
 
-	**Arguments**
-		component : DOM Node
-		The declared component wished to render.
+**Arguments**
+	component : DOM Node
+	The declared component wished to render.
 
-		DOMSelector: 
-		The target DOM Node to render the component to. Can use
-		string query syntax ('#id', '.class', *all', etc.), or
-		a DOM node stored in a variable (const target = $('#id'). 
+	DOMSelector: 
+	The target DOM Node to render the component to. Can use
+	string query syntax ('#id', '.class', *all', etc.), or
+	a DOM node stored in a variable (const target = $('#id'). 
 
 ********************************************
 
 **EXAMPLE**
 
- ###class Modal {
+ 	class Modal {
 		constructor() {
 			this.age = "18";
 			this.name = "modal";
