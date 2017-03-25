@@ -24,10 +24,10 @@ Using ES6 back tick template strings we can use multi-line strings to create the
 
 **Arguments**
 
-	component : DOM Node
+	component (DOM Node) :
 	The declared component wished to render.
 
-	DOMSelector: 
+	DOMSelector (String) :
 	The target DOM Node to render the component to. Can use string query syntax 
 	('#id', '.class', *all', etc.), or a DOM node stored in a variable 
 	(const target = $('#id'). 
