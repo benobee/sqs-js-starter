@@ -7,23 +7,19 @@
  */
 
 import Events from "./events/events";
-import HTTP from "./http/http";
 import * as Storage from './storage';
-import Router from "./router/router";
+import App_Router from "./router/router";
 import Component from "./component/component";
 import Scrollmap from "./scrollmap/scrollmap";
-import App from "./app/app";
-import Module from "./module/module";
+import App_Build from "./app/app";
 import $ from './dom/dom';
 
 export {
 	Events,
-	HTTP,
 	Storage,
 	Component,
-	Router,
+	App_Router,
 	Scrollmap,
-	App,
-	Module,
+	App_Build,
 	$
 };

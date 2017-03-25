@@ -1,0 +1,39 @@
+.Header.Header--top {
+    background: white;
+    .Header-inner.Header-inner--top {
+        max-width: 100%;
+        padding: 5px;
+        a {
+            color: @light-blue;
+        }
+        .Header-nav-item {
+            img {
+                height: auto;
+                max-width: 80px;
+            }
+        }
+    }
+}
+.Header-inner.Header-inner--bottom {
+    max-width: 100%;
+    background: @main-nav-background;
+    border-bottom: 3px solid @navy;
+    height: 60px;
+    padding-top: 25px;
+    padding-bottom: 23px;
+    border-top: @navy solid 3px;
+    a {
+        color: @main-nav-color;
+    }
+}
+.Header.Header--bottom.Header--overlay {
+    box-shadow: 1.5px 2.6px 7px rgba(0,0,0,0.35);
+    a {
+        color: @main-nav-color;
+    }
+    .Header-inner.Header-inner--bottom {
+        height: 60px;
+        padding-top: 25px;
+        padding-bottom: 23px;
+    }
+}

@@ -7,6 +7,7 @@
 */
 
 import Template from './template';
+import Events from "../events/events";
 
 let Component = {};
 
@@ -15,20 +16,13 @@ let Component = {};
  * HTML injected into the first element in the string 
 */
 
-const List = [];
-
 Component = (strings, ...exp) => {
 	/*create new template from string*/
 	const taggedLiteral = new Template(strings, ...exp);
 
-	/* push return object to component list */
-	List.push(taggedLiteral);
-
 	/* return the DOM element to be appended */
-	return taggedLiteral.root;
+	return taggedLiteral.node;
 };
-
-Component.list = List; //append all elements to root component in core
 
 /*
  * method for appending nodes which is contained
@@ -36,11 +30,30 @@ Component.list = List; //append all elements to root component in core
 */
 
 Component.render = (element, target) => {
-	if (target) {
-		target.appendChild(element);
+	const type = (typeof target);
+
+	if (type === "string") {
+		target = document.querySelectorAll(target);
+		target[ 0 ].appendChild(element);
+
+	} else if (type === "object") {
+		if (target instanceof HTMLElement) {
+			target = [target];
+		}
+
+		target.forEach((node) => {
+			node.appendChild(element);
+		});	
+
 	} else {
-		console.error("COMPONENT ERROR: Needs to be a valid DOM element.");
+		console.error("COMPONENT ERROR: Needs to be a valid DOM element or string selector.");
 	}
+};
+
+Component.toStaticHTML = (element) => {
+	const template = new Template();
+
+	return template.HTMLElementToString(element);
 };
 
 export default Component;

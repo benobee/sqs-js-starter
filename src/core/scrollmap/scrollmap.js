@@ -1,4 +1,3 @@
-import $ from '../dom/dom';
 import Trigger from './trigger';
 
 /**
@@ -9,14 +8,12 @@ import Trigger from './trigger';
  *
 */ 
 
-const Scrollmap = {
-  init() {
-
+class Scroll_Event_Trigger {
+  constructor() {
     this.lastScrollTop = 0;
     this.points = [];
     this.events();
-
-  },
+  }
   add(el, callback) {
 
   	/* 
@@ -27,20 +24,21 @@ const Scrollmap = {
 
     if (type === "string") {
         el = document.querySelectorAll(el);
-    } else if (typeof jQuery === "function" && el instanceof jQuery) {
-        el = el.toArray();
     } else if ( type === "object" ) {
         el = [el];
     }
 
-    el.forEach((item) => {
-        $(item).data('scrollmap-loaded', true);
+    el.forEach((node) => {
+        node.setAttribute(`data-scrollmap-loaded`, true);
 
-        const point = new Trigger(item, callback);
+        const point = new Trigger(node, callback);
 
         this.points.push(point);
     });
-  },
+  }
+  remove(trigger) {
+      trigger = null;
+  }
   elementInViewport(el, percetageOfElement) {
 
     /*
@@ -55,10 +53,6 @@ const Scrollmap = {
     */
    
     const rect = el.getBoundingClientRect();
-    
-    if (typeof jQuery === "function" && el instanceof jQuery) {
-      el = el[ 0 ];
-    }
 
     const stats = {
         top: rect.top - window.innerHeight,
@@ -74,26 +68,26 @@ const Scrollmap = {
 
     return false;
 
-  },
+  }
   checkVisible(point) {
     const targetElement = point.element;
     const viewport = this.elementInViewport(targetElement, point.surfaceVisible);
 
     if (viewport) {
-      $(targetElement).data('is-visible', true);
+      targetElement.setAttribute(`data-is-visible`, true);
 
       if (point.onTriggerIn) {
           point.onTriggerIn();
       }
 
     } else {
-      $(targetElement).data('is-visible', false);
+      targetElement.setAttribute(`data-is-visible`, false);
 
       if (point.onTriggerOut) {
           point.onTriggerOut();
       }
     }
-  },
+  }
   on(string, callback) {
 
       /*
@@ -109,7 +103,7 @@ const Scrollmap = {
       if (direction === "Down" && string === "scrollDown") {
           callback();             
       }
-  },
+  }
   scrollDirection() {
 
       /*
@@ -129,10 +123,10 @@ const Scrollmap = {
        this.lastScrollTop = st;
 
        return direction;
-  },
+  }
   extend(obj) {
     Object.assign(this, obj);
-  },
+  }
   events() {
   	//initial check on page load to see if elements are visible
     window.onload = () => {
@@ -152,5 +146,7 @@ const Scrollmap = {
 
   }
 };
+
+const Scrollmap = new Scroll_Event_Trigger();
 
 export default Scrollmap;

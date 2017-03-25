@@ -1,0 +1,41 @@
+.design-layout-card {
+    @media screen and (max-width:768px) {
+        .content-fit {
+            height: 300px !important;
+            width: 300px !important;
+            margin: 0 auto;
+        }
+        .sqs-dynamic-text-container {
+            .image-title {
+                text-align: center !important;
+            }
+            p {
+                text-align: center !important;
+            }
+        }
+    }
+    .intrinsic {
+        overflow: hidden;
+        height: auto;
+        .content-fit {
+            overflow: hidden;
+            padding-bottom: 0 !important;
+            border-radius: 50%;
+            height: 25vw;
+            width: 25vw;
+            max-height: 340px;
+            max-width: 340px;
+            img {
+                width: 155% !important;
+                height: auto !important;
+                position: static !important;
+            }
+            .image-overlay {
+                background: none;
+            }
+        }
+    }
+    .image-card-wrapper {
+        background: none !important;
+    }
+}

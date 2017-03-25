@@ -1,10 +1,10 @@
-const Router = {
-	init() {
+class App_Router {
+	constructor() {
 		this.params = this.getQueryParameters();
 		this.routes = [];
 		this.currentRoute = window.location.pathname;
 		this.checkRoute();
-	},
+	}
 	getQueryParameters(str) {
 
         /* 
@@ -18,7 +18,10 @@ const Router = {
 			return this;
 
 		}.bind({}))[ 0 ];
-	},
+	}
+	go(pathName) {
+		window.location.pathname = pathName;
+	}
 	route(pathName, controller) {
   		const route = {
   			pathName,
@@ -26,7 +29,7 @@ const Router = {
   		};
 
 	  	this.routes.push(route);
-	},
+	}
 	checkRoute() {
 		this.routes.forEach((item) => {
 			if (this.currentRoute === item.pathName) {
@@ -36,4 +39,5 @@ const Router = {
 	}
 };
 
-export default Router;
+export default App_Router;
+

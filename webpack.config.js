@@ -1,18 +1,18 @@
 /****************************************/
-/********    WEBPACK CONFIG     *********/
+/*******     WEBPACK CONFIG     *********/
 /****************************************/
 
 const webpack = require("webpack");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 /****************************************/
-/********    CONFIG OBJECT      *********/
+/*******     CONFIG OBJECT      *********/
 /****************************************/
 
 const WEBPACK_CONFIG = { module: {} };
 
 /****************************************/
-/********     ENVRIONMENTS      *********/
+/*******      ENVRIONMENTS      *********/
 /****************************************/
 
 /*
@@ -25,7 +25,7 @@ const WEBPACK_CONFIG = { module: {} };
 const isProduction = JSON.parse(process.env.PROD_ENV ? true : false);
 
 /***************************************/
-/**********      INPUT        **********/
+/*********       INPUT        **********/
 /***************************************/
 const input = {
     context: __dirname,
@@ -261,7 +261,7 @@ isProduction ? plugins.push(minify) : false;
 WEBPACK_CONFIG.plugins = plugins;
 
 /************************************/
-/**********      OUTPUT       *******/
+/********       OUTPUT        *******/
 /************************************/
 const output = {
     output: {

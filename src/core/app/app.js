@@ -24,6 +24,4 @@ class App_Build {
 	}
 }
 
-const App = new App_Build();
-
-export default App;
+export default App_Build;

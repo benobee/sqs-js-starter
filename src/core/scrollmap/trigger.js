@@ -8,8 +8,8 @@ class Trigger {
 		}
 	}
 	destroy() {
-		this.events = null;
 		this.element = null;
+		this.isDestroyed = true;
 	}
 }
 
