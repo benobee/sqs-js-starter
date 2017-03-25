@@ -7,7 +7,7 @@ Using ES6 back tick template strings we can use multi-line strings to create the
 
 ********************************************
 Method:
-	### Component `<html>${value}</html>`;
+	Component `<html>${value}</html>`;
 
 **Arguments**
 
@@ -16,7 +16,7 @@ The HTML string used to create the component. Must be valid HTML. Using tagged t
 
 ********************************************
 Method:
-	### Component.render(component, DOMSelector);
+	Component.render(component, DOMSelector);
 
 **Arguments**
 
@@ -28,7 +28,7 @@ The target DOM Node to render the component to. Can use string query syntax ('#i
 
 ********************************************
 Method:
-### Component.toStaticHTML(element);
+	Component.toStaticHTML(element);
 
 **Arguments**
 
