@@ -1,4 +1,5 @@
 import { Component } from '../../core';
+import * as data from '../../../data.json';
 
 class Modal {
 	constructor() {
@@ -20,8 +21,17 @@ class Modal {
 	}
 }
 
-const html = Component `<div></div>`;
+const items = data.items;
 
-console.log([html]);
+
+const list = Component `
+	<div class="collection-list">${
+		items.map((item) => {
+			return `<div class="collection-item">${item.title}</div>`;
+		})
+	}</div>
+`;
+
+Component.render(list, '#page');
 
 export default Modal;
