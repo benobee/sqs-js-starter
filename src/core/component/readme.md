@@ -1,6 +1,5 @@
 ******************************************** 
-# COMPONENT   
-********************************************
+# COMPONENT
 
 **description**: A lightweight method for working with tagged template literals. Appending the Component tag before the template literal string, turns the string into and actual DOM node.
 
@@ -8,7 +7,7 @@ Using ES6 back tick template strings we can use multi-line strings to create the
 
 ********************************************
 
-###Component `<html>${value}</html>`;
+### Component `<html>${value}</html>`;
 
 **Arguments**
 
@@ -21,7 +20,7 @@ Using ES6 back tick template strings we can use multi-line strings to create the
 
 ********************************************
 
-###Component.render(component, DOMSelector);
+### Component.render(component, DOMSelector);
 
 **Arguments**
 
