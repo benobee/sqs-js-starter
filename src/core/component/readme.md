@@ -1,8 +1,8 @@
 ******************************************** 
- 				COMPONENT   
+ 			  # COMPONENT   
 ********************************************
 
-@description: A lightweight method for working 
+**description**: A lightweight method for working 
 with tagged template literals. Appending the 
 Component tag before the template literal string, 
 turns the string into and actual DOM node.
@@ -16,7 +16,7 @@ possible using ${ - INSERT STRING OR OBJECT - }
 
 Component `<html>${value}</html>`;
 
-	Arguments:
+	**Arguments**
 		The HTML string used to create the component. Must
 		be valid HTML. Using tagged template literal syntax,
 		dynamic values can be used via '${value}'. Values can
@@ -29,7 +29,7 @@ Component `<html>${value}</html>`;
 
 Component.render(component, DOMSelector);
 
-	Arguments
+	**Arguments**
 		component : DOM Node
 		The declared component wished to render.
 
@@ -40,9 +40,9 @@ Component.render(component, DOMSelector);
 
 ********************************************
 
-EXAMPLE:
+**EXAMPLE**
 
-	class Modal {
+ ###class Modal {
 		constructor() {
 			this.age = "18";
 			this.name = "modal";
