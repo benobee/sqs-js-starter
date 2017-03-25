@@ -17,6 +17,7 @@ possible using ${ - INSERT STRING OR OBJECT - }
 Component `<html>${value}</html>`;
 
 **Arguments**
+
 	The HTML string used to create the component. Must
 	be valid HTML. Using tagged template literal syntax,
 	dynamic values can be used via '${value}'. Values can
@@ -30,6 +31,7 @@ Component `<html>${value}</html>`;
 Component.render(component, DOMSelector);
 
 **Arguments**
+
 	component : DOM Node
 	The declared component wished to render.
 
