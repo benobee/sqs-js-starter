@@ -50,6 +50,7 @@ Component.render = (element, target) => {
 	}
 };
 
+//convert element to HTML string
 Component.toStaticHTML = (element) => {
 	const template = new Template();
 

@@ -6,31 +6,34 @@
 Using ES6 back tick template strings we can use multi-line strings to create the HTML template. Injecting data or dynanamic properties is also possible using ${ - INSERT STRING OR OBJECT - }
 
 ********************************************
-
-### Component `<html>${value}</html>`;
+Method:
+	### Component `<html>${value}</html>`;
 
 **Arguments**
 
-	The HTML string used to create the component. Must be valid HTML. 
-	Using tagged template literal syntax, dynamic values can be used 
-	via '${value}'. Values can be either strings, DOM elements or another 
-	Component (which is also just a DOM node). A dom node will be coverted 
-	to a string and injected as innerHTML.
+The HTML string used to create the component. Must be valid HTML. Using tagged template literal syntax, dynamic values can be used via '${value}'. Values can be either strings, DOM elements or another Component (which is also just a DOM node). A dom node will be coverted to a string and injected as innerHTML.
 
 
 ********************************************
-
-### Component.render(component, DOMSelector);
+Method:
+	### Component.render(component, DOMSelector);
 
 **Arguments**
 
-	component (DOM Node) :
-	The declared component wished to render.
+component (DOM Node) :
+The declared component wished to render.
 
-	DOMSelector (String) :
-	The target DOM Node to render the component to. Can use string query syntax 
-	('#id', '.class', *all', etc.), or a DOM node stored in a variable 
-	(const target = $('#id'). 
+DOMSelector (String) :
+The target DOM Node to render the component to. Can use string query syntax ('#id', '.class', *all', etc.), or a DOM node stored in a variable (const target = $('#id'). 
+
+********************************************
+Method:
+### Component.toStaticHTML(element);
+
+**Arguments**
+
+element (DOM Node) :
+returns an HTML string of a DOM node.
 
 ********************************************
 
