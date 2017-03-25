@@ -6,7 +6,8 @@
 Using ES6 back tick template strings we can use multi-line strings to create the HTML template. Injecting data or dynanamic properties is also possible using ${ - INSERT STRING OR OBJECT - }
 
 ********************************************
-Method:
+Method
+
 	Component `<html>${value}</html>`;
 
 **Arguments**
@@ -15,7 +16,8 @@ The HTML string used to create the component. Must be valid HTML. Using tagged t
 
 
 ********************************************
-Method:
+Method
+
 	Component.render(component, DOMSelector);
 
 **Arguments**
@@ -27,7 +29,8 @@ DOMSelector (String) :
 The target DOM Node to render the component to. Can use string query syntax ('#id', '.class', *all', etc.), or a DOM node stored in a variable (const target = $('#id'). 
 
 ********************************************
-Method:
+Method
+
 	Component.toStaticHTML(element);
 
 **Arguments**
