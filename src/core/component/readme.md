@@ -1,5 +1,5 @@
 ******************************************** 
-*************   COMPONENT   ****************
+ 				COMPONENT   
 ********************************************
 
 @description: A lightweight method for working 
@@ -12,6 +12,8 @@ multi-line strings to create the HTML template.
 Injecting data or dynanamic properties is also 
 possible using ${ - INSERT STRING OR OBJECT - }
 
+********************************************
+
 Component `<html>${value}</html>`;
 
 	Arguments:
@@ -23,6 +25,8 @@ Component `<html>${value}</html>`;
 		coverted to a string and injected as innerHTML.
 
 
+********************************************
+
 Component.render(component, DOMSelector);
 
 	Arguments
@@ -33,6 +37,8 @@ Component.render(component, DOMSelector);
 		The target DOM Node to render the component to. Can use
 		string query syntax ('#id', '.class', *all', etc.), or
 		a DOM node stored in a variable (const target = $('#id'). 
+
+********************************************
 
 EXAMPLE:
 
