@@ -8,7 +8,7 @@ Using ES6 back tick template strings we can use multi-line strings to create the
 ********************************************
 Method
 
-	Component `<html>${value}</html>`;
+	Component `<div class="component">${value}</div>`;
 
 **Arguments**
 
